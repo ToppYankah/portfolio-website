@@ -2,26 +2,196 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+    box-sizing: border-box;
+    cursor: none;
+}
+
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+    --foreground-hex: #1c110a;
+    --background-hex: #e0ddcf;
+    --custom-timing: cubic-bezier(0.15, 0.86, 0.66, 0.99);
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+    :root {
+        --foreground-hex: #e0ddcf;
+        /* --foreground-hex: #9a9494; */
+        --background-hex: #040f16;
+        --background-hex: #080808;
+        --background-hex: #000;
+    }
+
+    #works-section .work-title {
+        mix-blend-mode: difference;
+    }
+}
+
+#pointer-overlay {
+    mix-blend-mode: difference;
+    border-radius: 0.75rem;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+    overflow-x: hidden;
+    color: var(--foreground-hex);
+    background: var(--background-hex);
+}
+
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    width: 2px;
+}
+
+#pointer-overlay {
+    @apply pointer-events-none fixed left-1/2 top-1/2 z-[1000] min-h-[0.75rem] min-w-[0.75rem] bg-white;
+    transition: all 0.3s ease-out;
+    color: var(--background-hex);
+}
+
+#pointer-overlay.scale {
+    @apply min-h-[2.5rem] min-w-[2.5rem];
+    border-radius: 0px;
+}
+
+/* NavLink Styles */
+.nav-link {
+    @apply before:bg-inverted relative self-start overflow-hidden text-sm before:absolute before:bottom-0 before:left-0 before:h-[2px] before:w-full before:origin-left before:scale-x-0 before:transition-transform before:duration-500 before:content-['_'] hover:before:scale-x-100;
+}
+
+.nav-link.active {
+    @apply before:scale-x-0;
+}
+
+.nav-link > :first-child {
+    display: flex;
+    max-height: 20px;
+    flex-direction: column;
+}
+
+.nav-link > :first-child span {
+    transition-duration: 0.3s;
+    transition-property: transform;
+    transition-timing-function: var(--custom-timing);
+}
+
+.nav-link:hover > :first-child span {
+    transform: translateY(-100%);
+}
+
+/* Mouse Track Grid Styles */
+#response-grid {
+    @apply pointer-events-none fixed inset-0  grid grid-rows-6;
+    grid-template-rows: repeat(10, minmax(0, 1fr));
+    grid-template-columns: repeat(10, minmax(0, 1fr));
+}
+
+#response-grid .grid-tile {
+    opacity: 0;
+    transition: opacity 0.5s linear;
+    background-color: var(--foreground-hex);
+}
+
+#response-grid .grid-tile.active {
+    opacity: 0.1;
+    transition: none;
+}
+
+/* Loader Styles */
+#loader-overlay {
+    @apply grid h-screen grid-cols-4 grid-rows-3;
+}
+
+.loader-overlay__inner {
+    @apply col-start-2 col-end-4 row-start-2 row-end-3 flex items-center justify-center;
+}
+
+.loader-overlay__wheel {
+    @apply flex items-center font-sans font-black;
+}
+
+.number-wheel {
+    @apply max-h-[1rem] overflow-hidden;
+}
+
+.number-wheel__inner {
+    @apply flex flex-col;
+}
+
+.number-wheel__inner span {
+    line-height: 1rem;
+}
+
+#hero-title h1 {
+    @apply whitespace-nowrap font-serif text-[6.3rem] font-semibold;
+}
+
+/* Other Styles */
+.line-capped {
+    @apply before:bg-color before:border-inverted before:absolute before:right-0 before:top-[-5px] before:h-3 before:w-3 before:-rotate-45 before:border-[2px] before:content-['_'];
+}
+
+#logo {
+    overflow: hidden;
+}
+
+.img-no-filter {
+    opacity: 0;
+    transition: all 0.3s linear; /*var(--custom-timing);
+  /* clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%); */
+}
+
+.img-with-filter:hover + .img-no-filter {
+    opacity: 1;
+    /* clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%); */
+}
+
+[data-section-title] {
+    @apply flex flex-col gap-3;
+}
+
+[data-section-title] h3 {
+    @apply whitespace-nowrap text-6xl font-medium;
+}
+
+.section-wrapper {
+    display: flex;
+    min-height: 100vh;
+    justify-content: center;
+}
+
+.section-wrapper.min {
+    min-height: min-content;
+}
+
+.section-wrapper__inner {
+    width: 100vw;
+    max-width: 1500px;
+    min-height: max-content;
+}
+
+#footer .footer__block {
+    display: flex;
+}
+
+#footer .footer__block-column {
+    flex: 1;
+}
+
+#footer .footer__block-column-lg {
+    flex: 2;
+}
+
+#footer .footer__block p {
+    margin-bottom: 1rem;
+    @apply font-bold;
+}
+
+#footer .footer__block-span {
+    display: block;
+    margin-bottom: 5px;
+    @apply flex text-sm;
 }

@@ -114,6 +114,11 @@
   dependencies:
     glob "7.1.7"
 
+"@next/font@^14.0.4":
+  version "14.0.4"
+  resolved "https://registry.yarnpkg.com/@next/font/-/font-14.0.4.tgz#2df271479fa967d49c8ca8c1ca9db1506f8fe585"
+  integrity sha512-anSlBJxaSlJ2S1mhfN/zddg8RsWvUCS6vMn9Sqjem3EukD6Z44lsj1lwXFdifUgwsJvw5Uf8MKupksAfRmDbeQ==
+
 "@next/swc-darwin-arm64@14.0.4":
   version "14.0.4"
   resolved "https://registry.yarnpkg.com/@next/swc-darwin-arm64/-/swc-darwin-arm64-14.0.4.tgz#27b1854c2cd04eb1d5e75081a1a792ad91526618"
@@ -184,6 +189,11 @@
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/@rushstack/eslint-patch/-/eslint-patch-1.6.0.tgz#1898e7a7b943680d757417a47fb10f5fcc230b39"
   integrity sha512-2/U3GXA6YiPYQDLGwtGlnNgKYBSwCFIHf8Y9LUY5VATHdtbLlU0Y1R3QoBnT0aB4qv/BEiVVsj7LJXoQCgJ2vA==
+
+"@studio-freight/lenis@^1.0.29":
+  version "1.0.29"
+  resolved "https://registry.yarnpkg.com/@studio-freight/lenis/-/lenis-1.0.29.tgz#d7fcbf16c2ca1ddcb0d19007851e2920006985d4"
+  integrity sha512-z/qS8ato5m2wlxQREYj5iALcxMrhhm06vEiLqYzLI+3HmpPzPscmJ8cXNiay4bj692vOot2hyTA3WP++AQVoKA==
 
 "@swc/helpers@0.5.2":
   version "0.5.2"
@@ -1232,6 +1242,11 @@ graphemer@^1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/graphemer/-/graphemer-1.4.0.tgz#fb2f1d55e0e3a1849aeffc90c4fa0dd53a0e66c6"
   integrity sha512-EtKwoO6kxCL9WO5xipiHTZlSzBm7WLT627TqC/uVRd0HKmq8NXyebnNYxDoBi7wt8eTWrUrKXCOVaFq9x1kgag==
+
+gsap@^3.12.3:
+  version "3.12.3"
+  resolved "https://registry.yarnpkg.com/gsap/-/gsap-3.12.3.tgz#5baa5d05e845eead09134134d2698210068b9619"
+  integrity sha512-TySXTE+ABiAVa61W+h5wv2p5GkJT1Uj//4nWpK8EjmhcDqwH++35IvtbQlVVFj+rdcJdFCdCt0SKgb+SwdPq/A==
 
 has-bigints@^1.0.1, has-bigints@^1.0.2:
   version "1.0.2"
